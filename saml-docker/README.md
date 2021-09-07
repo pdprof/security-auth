@@ -33,3 +33,22 @@ setup-openshift.sh
 Now you can access to http://db-connections-route-default.apps-crc.testing/ssl
 
 Other test steps are same with docker.
+
+
+# Note
+
+To create docker for keycloak realm json file
+
+[Exporting a realm](https://hub.docker.com/r/jboss/keycloak)
+
+docker run -d -p 18080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=password --name keycloak jboss/keycloak
+
+Create pdprof realm by GUI
+
+docker exec -it keycloak /opt/jboss/keycloak/bin/standalone.sh -Djboss.socket.binding.port-offset=100 -Dkeycloak.migration.action=export -Dkeycloak.migration.provider=singleFile -Dkeycloak.migration.realmName=pdprof -Dkeycloak.migration.usersExportStrategy=REALM_FILE -Dkeycloak.migration.file=/tmp/pdprof_realm.json
+
+docker cp keycloak:/tmp/pdprof_realm.json .
+
+docker build -f Dockerfile.keycloak .
+
+docker run -e KEYCLOAK_IMPORT=/tmp/pdprof-realm.json liberty-idp

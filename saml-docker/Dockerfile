@@ -17,7 +17,7 @@ LABEL \
   description="This image contains the system microservice running with the Open Liberty runtime."
 
 USER root
-# make is for snapit
+# make is for tnapit
 # porcps-ng is for vmstat, ps, top (in linperf.sh)
 # net-tools is for netstat (in inperf.sh)
 # gdb is for gcore

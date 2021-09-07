@@ -1,0 +1,4 @@
+FROM jboss/keycloak
+ENV KEYCLOAK_USER=admin
+ENV KEYCLOAK_PASSWORD=password
+COPY setup-keycloak.sh /tmp/setup-keycloak.sh
