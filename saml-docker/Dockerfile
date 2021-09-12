@@ -28,7 +28,7 @@ RUN mkdir -p /pdprof/share \
 COPY --chown=1001:0 trapit /config/
 COPY --chown=1001:0 config/server.xml /config/
 COPY --chown=1001:0 config/jvm.options /config/
-COPY --chown=1001:0 apps/helloAuth.war /config/apps/
+COPY --chown=1001:0 apps/security.auth.war /config/apps/
 COPY --chown=1001:0 resources/security/idpMetadata.xml /config/resources/security/
 
 USER 1001
