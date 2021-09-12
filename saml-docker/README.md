@@ -36,6 +36,8 @@ docker run --rm -p 9080:9080 -p 9443:9443 -v ~/pdprof:/pdprof:z saml
 
 Now you can access https://localhost:9443/security.auth/
 
+UserId is pdprof. Password is password
+
 
 ## Test on OpenShift
 
