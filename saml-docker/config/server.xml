@@ -27,8 +27,9 @@
     <samlWebSso20 id="defaultSP" 
 	    httpsRequired="false">
     </samlWebSso20>
-
-    <webApplication id="helloAuth" location="helloAuth.war" name="helloAuth">
+	    
+    <webApplication id="security.auth"
+				location="security.auth.war" name="security.auth">
         <application-bnd>
                 <security-role name="user">
                         <group name="students" />
