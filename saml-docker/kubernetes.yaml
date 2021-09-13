@@ -61,7 +61,7 @@ metadata:
   name: idp-service
 spec:
   selector:
-    app: saml
+    app: idp
   ports:
   - protocol: TCP
     port: 8080
