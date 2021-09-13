@@ -17,7 +17,7 @@ spec:
       - name: saml-container
         image: image-registry.openshift-image-registry.svc:5000/[project-name]/saml:[build-date]
         ports:
-        - containerPort: 9080
+        - containerPort: 9443
       imagePullSecrets:
       - name: docker-user-secret
 ---
@@ -53,7 +53,7 @@ spec:
     app: saml
   ports:
   - protocol: TCP
-    port: 9080
+    port: 9443
 ---
 apiVersion: v1
 kind: Service
@@ -74,6 +74,9 @@ spec:
   to:
     kind: Service
     name: saml-service
+  tls:
+    termination: passthrough
+    insecureEdgeTerminationPolicy: None
 ---
 apiVersion: v1
 kind: Route
