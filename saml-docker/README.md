@@ -29,12 +29,12 @@ Here are screen shots
 
 
 ### Start docker 
-```
-mkdir -p ~/pdprof/share
-docker run --rm -p 9080:9080 -p 9443:9443 -v ~/pdprof:/pdprof:z saml
-```
 
-Now you can access https://localhost:9443/security.auth/
+Docker containers already started with setup-docker.sh command
+
+Please check kc and ol for related containers.
+
+Now you can access to https://localhost:9443/security.auth/
 
 UserId is pdprof. Password is password
 
@@ -45,9 +45,17 @@ After you setup CRC described at [icp4a-helloworld](https://github.com/pdprof/ic
 
 You can use following script. 
 ```
-setup-openshift.sh
+./setup-openshift-1.sh
 ```
 
-Now you can access to http://db-connections-route-default.apps-crc.testing/security.auth/
+After above command is finished, please create pdprof realm same with docker steps.
+
+And Please send following command
+
+```
+./setup-openshift-2.sh
+```
+
+After this, you can access to https://saml-route-default.apps-crc.testing/security.auth/
 
 Other test is same with docker.
