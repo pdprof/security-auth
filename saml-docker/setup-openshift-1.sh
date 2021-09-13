@@ -6,6 +6,7 @@ if [ ! -f trapit ]; then
      exit 1
 fi
 chmod 755 trapit
+mkdir -p resources/security
 
 docker build -t liberty-idp -f Dockerfile.keycloak .
 docker run -d -p 8080:8080 --name kc liberty-idp
