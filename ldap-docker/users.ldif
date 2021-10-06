@@ -1,0 +1,26 @@
+dn: ou=users,dc=pdprof,dc=mustgather
+changeType: add
+objectClass: organizationalUnit
+ou: users
+
+dn: uid=pdprof,ou=users,dc=pdprof,dc=mustgather
+changeType: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: pdprof
+cn: pdprof
+sn: mustgather
+userPassword: {SSHA}e343f0ffdbc90c692ed1a4b0962fd02e52f25cf0
+
+dn: uid=myuser,ou=users,dc=pdprof,dc=mustgather
+changeType: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: myuser
+cn: user
+sn: my
+userPassword: {SSHA}e343f0ffdbc90c692ed1a4b0962fd02e52f25cf0
