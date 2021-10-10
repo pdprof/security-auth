@@ -20,7 +20,21 @@ Please check kc and ol for related containers.
 
 Now you can access to https://localhost:9443/security.auth/
 
-UserId is pdprof. Password is passw0rd
+User Table
+
+|User   |Password|
+|---    |---     |
+|wsadmin|passw0rd|
+|pdprof |passw0rd|
+|myser  |passw0rd|
+
+
+Check OpenLDAP server response with following command.
+```
+ldapsearch -x -H ldap://localhost:389 -D "cn=admin,dc=pdprof,dc=mustgather" -b "dc=pdprof,dc=mustgather" -w "passw0rd"
+
+You can see openldap admin user and password with this command.
+```
 
 
 ## Test on OpenShift
@@ -35,3 +49,10 @@ You can use following script.
 After this, you can access to https://ldap-route-default.apps-crc.testing/security.auth/
 
 Other test is same with docker.
+
+
+# Notes:
+
+If you want to remove bindUser and bindPassword from server.xml, you have to change openldap access configuration
+
+If you want to chage userPassword salt, you need to find proper configuration to do so. 

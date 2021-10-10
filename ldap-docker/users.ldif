@@ -12,7 +12,7 @@ objectClass: inetOrgPerson
 uid: pdprof
 cn: pdprof
 sn: mustgather
-userPassword: {SSHA}e343f0ffdbc90c692ed1a4b0962fd02e52f25cf0
+userPassword: passw0rd
 
 dn: uid=myuser,ou=users,dc=pdprof,dc=mustgather
 changeType: add
@@ -23,4 +23,15 @@ objectClass: inetOrgPerson
 uid: myuser
 cn: user
 sn: my
-userPassword: {SSHA}e343f0ffdbc90c692ed1a4b0962fd02e52f25cf0
+userPassword: passw0rd
+
+dn: uid=wsadmin,ou=users,dc=pdprof,dc=mustgather
+changeType: add
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: wsadmin
+cn: Was
+sn: admin
+userPassword: passw0rd

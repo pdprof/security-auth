@@ -1,6 +1,6 @@
 <server description="new server">
 
-	<!-- Enable features -->
+    <!-- Enable features -->
     <featureManager>
 	<feature>webProfile-8.0</feature>
 	<feature>localConnector-1.0</feature>
@@ -24,15 +24,17 @@
       traceFormat="BASIC" />
 
     <!-- specific configuration for LDAP -->
+    <!-- You can try basicRegistry, if ldap does not work
     <basicRegistry id="basic" realm="BasicRealm">
 	<user name="wsadmin" password="passw0rd" />
     </basicRegistry>
     <administrator-role>
 	<user>wsadmin</user>
     </administrator-role>
+    -->
     <ldapRegistry baseDN="dc=pdprof,dc=mustgather" host="{ldap-host}"
 	id="ldap" ignoreCase="true" ldapType="Custom"
-	port="1389" realm="LdapRealm" sslEnabled="false">
+	port="1389" realm="LdapRealm" sslEnabled="false" bindDN="cn=admin,dc=pdprof,dc=mustgather" bindPassword="passw0rd">
 	<idsFilters
         	groupFilter="(&amp;(cn=%v)(|(objectclass=groupOfUniqueNames)))"
 		groupIdMap="*:cn"
