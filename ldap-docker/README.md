@@ -26,7 +26,7 @@ User Table
 |---    |---     |
 |wsadmin|passw0rd|
 |pdprof |passw0rd|
-|myser  |passw0rd|
+|myuser |passw0rd|
 
 
 Check OpenLDAP server response with following command.
