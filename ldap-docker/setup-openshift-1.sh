@@ -7,12 +7,7 @@ if [ ! -f trapit ]; then
 fi
 chmod 755 trapit
 
-DOCKER_HOST=172.17.0.1
-
 docker build -t ldap -f Dockerfile.openldap .
-docker run -d -p 1389:389 --name ldap ldap --loglevel debug
-#Change for Docker
-sed -i s/{ldap-host}/$DOCKER_HOST/g config/server.xml
+#Change for OpenShift
+sed -i s/{ldap-host}/ldap-service/g config/server.xml
 docker build -t auth .
-docker run -d -p 9080:9080 -p 9443:9443 --name ll auth
-#sleep 30
