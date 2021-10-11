@@ -52,7 +52,7 @@ After you build the image, please issue follow to deply them to OpenShift.
 ./setup-openshift-2.sh
 ```
 
-After this, you can access to https://auth-route-default.apps-crc.testing/security.auth/
+After this, you can access to http://auth-route-default.apps-crc.testing/security.auth/
 
 Other test is same with docker.
 
