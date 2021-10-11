@@ -20,6 +20,17 @@ docker login `oc registry info`
 # pull openliberty docker repository
 BUILD_DATE=`date +%Y%m%d`
 
+docker build -t ldap -f Dockerfile.openldap .
+# Change for OpenShift
+# https://kubernetes.io/ja/docs/concepts/services-networking/dns-pod-service/
+# service name : ldap-servcice,
+# namepsace    : default
+sed -i s/{ldap-host}/ldap-service.$(oc project -q).svc.cluster.local/g config/server.xml
+# Change port number for OpenShift
+sed -i s/1389/389/ config/server.xml
+docker build -t auth .
+
+
 docker tag ldap:latest $(oc registry info)/$(oc project -q)/ldap:${BUILD_DATE}
 docker tag auth:latest $(oc registry info)/$(oc project -q)/auth:${BUILD_DATE}
 
