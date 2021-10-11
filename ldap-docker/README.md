@@ -41,15 +41,10 @@ You can see openldap admin user and password with this command.
 
 After you setup CRC described at [icp4a-helloworld](https://github.com/pdprof/icp4a-helloworld)
 
-You can use following script to build image for OpenShift. Same image name is used with test with docker, please delete images before this.
+You can use following script to build image and deploy for OpenShift. Same image name is used with test with docker, please delete images before this.
 
 ```
-./setup-openshift-1.sh
-```
-
-After you build the image, please issue follow to deply them to OpenShift.
-```
-./setup-openshift-2.sh
+./setup-openshift.sh
 ```
 
 After this, you can access to http://auth-route-default.apps-crc.testing/security.auth/
