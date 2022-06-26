@@ -22,10 +22,10 @@ USER root
 # net-tools is for netstat (in inperf.sh)
 # gdb is for gcore
 RUN dnf install -y make procps-ng net-tools gdb
-ADD --chown=1001:0 https://www.ibm.com/support/pages/system/files/inline-files/\$FILE/linperf.sh /config/
+# ADD --chown=1001:0 https://www.ibm.com/support/pages/system/files/inline-files/\$FILE/linperf.sh /config/
 RUN mkdir -p /pdprof/share \
-    && chown -R 1001:0 /pdprof && chmod 755 /config/linperf.sh
-COPY --chown=1001:0 trapit /config/
+    && chown -R 1001:0 /pdprof
+# COPY --chown=1001:0 trapit /config/
 COPY --chown=1001:0 config/server.xml /config/
 COPY --chown=1001:0 config/jvm.options /config/
 COPY --chown=1001:0 apps/security.auth.war /config/apps/
