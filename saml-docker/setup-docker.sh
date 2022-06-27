@@ -13,7 +13,7 @@ fi
 mkdir -p resources/security
 
 docker build -t liberty-idp -f Dockerfile.keycloak .
-docker run -d -p 8080:8080 --name kc liberty-idp
+docker run -d -p 8080:8080 --name kc liberty-idp -Djboss.bind.address.private=127.0.0.1 -Djboss.bind.address=0.0.0.0
 sleep 100
 docker exec kc /tmp/setup-keycloak.sh
 curl http://localhost:8080/auth/realms/pdprof/protocol/saml/descriptor > resources/security/idpMetadata.xml
