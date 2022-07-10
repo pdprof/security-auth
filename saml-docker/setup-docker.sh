@@ -24,3 +24,7 @@ sleep 30
 curl -k https://localhost:9443/ibm/saml20/defaultSP/samlmetadata > spMetadata.xml
 sed -i s/localhost:9443/$ACCESS_HOST:9443/g spMetadata.xml
 echo "access to http://$ACCESS_HOST:8080/auth/admin/master/console/#/realms/pdprof/clients and create clients with spMetadata.xml"
+echo "\n\n***** CLIENT SECRET of clientId: api-services *****"
+docker cp kc:/tmp/clientid.txt clientid.txt
+cat clientid.txt
+echo "***** END *****"
