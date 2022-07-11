@@ -44,6 +44,7 @@
         </application-bnd>
     </webApplication>
 
+    <webApplication id="security.oauth2_client" location="security.oauth2_client.war" name="security.oauth2_client"/>
 
     <!-- Automatically expand WAR files and EAR files -->
     <applicationManager autoExpand="true"/>
