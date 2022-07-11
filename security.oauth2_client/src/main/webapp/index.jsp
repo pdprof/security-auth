@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<% 
+String redirect_uri = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() 
+	+ "/" + request.getContextPath()+"/redirect.jsp";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +15,11 @@
 <li><font color="red">Request to get /auth endpoint URL</font><br>
 <table>
 <form action="client" method="get">
-<tr><td>Keycloak host</td><td><input name="keycloak_host" type="text" size="40"></td></tr>
-<tr><td>Keycloak realm</td><td><input name="keycloak_realm" type="text" size="40"></td></td></tr>
-<tr><td>Redirect uri</td><td><input name="redirect_uri" type="text" size="40"></td></tr>
-<tr><td>scope</td><td><input name="scope" type="text" size="40"></td></tr>
-<tr><td>client_id</td><td><input name="client_id" type="text" size="40"></td></tr>
+<tr><td>Keycloak host</td><td><input name="keycloak_host" type="text" size="40" value="localhost"></td></tr>
+<tr><td>Keycloak realm</td><td><input name="keycloak_realm" type="text" size="40" value="pdprof"></td></td></tr>
+<tr><td>Redirect uri</td><td><input name="redirect_uri" type="text" size="40" value="<%=redirect_uri%>"></td></tr>
+<tr><td>scope</td><td><input name="scope" type="text" size="40" value="apiconnect"></td></tr>
+<tr><td>client_id</td><td><input name="client_id" type="text" size="40" value="api-services"></td></tr>
 <tr><td>client_secret</td><td><input name="client_secret" type="text" size="40"></td></tr>
 <tr><td></td><td><input type="submit" value="Get /auth endpoint link"></td></tr>
 <input type="hidden" name="mode" value="auth">

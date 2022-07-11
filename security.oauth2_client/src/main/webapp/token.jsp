@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.Iterator" %>
 <% 
 int size = request.getParameterMap().size();
 String parameters[] = new String[size];
 int x = 0;
-while(request.getParameterNames().hasMoreElements()) {
-	 parameters[x] = request.getParameterNames().nextElement();
+Iterator<String> it = request.getParameterNames().asIterator();
+while(it.hasNext()) {
+	 parameters[x] = it.next();
+	 x = x + 1;
 }
 
 String code = request.getParameter("code");

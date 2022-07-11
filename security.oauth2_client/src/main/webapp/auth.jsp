@@ -3,7 +3,7 @@
 <% String link = "https://" + session.getAttribute("keycloak_host") + ":8443/auth/realms/"
 	+ session.getAttribute("keycloak_realm") + "/protocol/openid-connect/auth?response_type=code&redirect_uri="
 	+ session.getAttribute("redirect_uri") + "&scope=" + session.getAttribute("scope")
-	+ "&client_id=" + session.getAttribute("clinet_id"); %>    
+	+ "&client_id=" + session.getAttribute("client_id"); %>    
 <!DOCTYPE html>
 <html>
 <head>
