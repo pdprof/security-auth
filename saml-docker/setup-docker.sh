@@ -13,7 +13,7 @@ fi
 mkdir -p resources/security
 
 docker build -t liberty-idp -f Dockerfile.keycloak .
-docker run -d -p 8080:8080 --name kc liberty-idp -Djboss.bind.address.private=127.0.0.1 -Djboss.bind.address=0.0.0.0
+docker run -d -p 8080:8080 -p 8443:8443 --name kc liberty-idp -Djboss.bind.address.private=127.0.0.1 -Djboss.bind.address=0.0.0.0
 sleep 100
 docker exec kc /tmp/setup-keycloak.sh
 curl http://localhost:8080/auth/realms/pdprof/protocol/saml/descriptor > resources/security/idpMetadata.xml
@@ -25,6 +25,6 @@ curl -k https://localhost:9443/ibm/saml20/defaultSP/samlmetadata > spMetadata.xm
 sed -i s/localhost:9443/$ACCESS_HOST:9443/g spMetadata.xml
 echo "access to http://$ACCESS_HOST:8080/auth/admin/master/console/#/realms/pdprof/clients and create clients with spMetadata.xml"
 echo "\n\n***** CLIENT SECRET of clientId: api-services *****"
-docker cp kc:/tmp/clientid.txt clientid.txt
-cat clientid.txt
+docker cp kc:/tmp/client_secret.txt client_secret.txt
+cat client_secret.txt
 echo "***** END *****"

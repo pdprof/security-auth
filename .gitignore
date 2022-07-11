@@ -37,3 +37,6 @@ buildNumber.properties
 # Eclipse
 .settings
 .com_ibm_tools_attach
+
+# Other
+client_secret.txt
