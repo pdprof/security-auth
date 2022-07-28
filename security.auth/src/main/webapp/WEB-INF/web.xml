@@ -32,4 +32,7 @@
 	<security-role>
 		<role-name>AllAuthenticated</role-name>
 	</security-role>
+	<security-role>
+		<role-name>user</role-name>
+	</security-role>
 </web-app>
