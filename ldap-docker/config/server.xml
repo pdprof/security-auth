@@ -36,7 +36,7 @@
 	id="ldap" ignoreCase="true" ldapType="Custom"
 	port="1389" realm="LdapRealm" sslEnabled="false" bindDN="cn=admin,dc=pdprof,dc=mustgather" bindPassword="passw0rd">
 	<idsFilters
-        	groupFilter="(&amp;(cn=%v)(|(objectclass=groupOfUniqueNames)))"
+        	groupFilter="(&amp;(cn=%v)(|(objectclass=groupOfNames)))"
 		groupIdMap="*:cn"
 		userFilter="(&amp;(uid=%v)(objectclass=person))"
 		userIdMap="*:uid">

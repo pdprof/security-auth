@@ -35,3 +35,15 @@ uid: wsadmin
 cn: Was
 sn: admin
 userPassword: passw0rd
+
+dn: ou=group,dc=pdprof,dc=mustgather
+changeType: add
+objectClass: organizationalUnit
+ou: group
+
+dn: cn=students,ou=group,dc=pdprof,dc=mustgather
+changetype: add
+objectClass: top
+objectClass: groupOfNames
+cn: students
+member: uid=myuser,ou=users,dc=pdprof,dc=mustgather
