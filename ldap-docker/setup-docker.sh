@@ -5,9 +5,12 @@
 #     echo "===================="
 #     exit 1
 #fi
-chmod 755 trapit
+#chmod 755 trapit
 
-DOCKER_HOST=172.17.0.1
+if [ -z $DOCKER_HOST ]; then
+  echo 'Please set the "DOCKER_HOST" environment variable and try again.'
+  exit 2
+fi
 
 docker build -t ldap -f Dockerfile.openldap .
 docker run -d -p 1389:389 --name ldap ldap --loglevel debug

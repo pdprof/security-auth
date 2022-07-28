@@ -25,7 +25,10 @@ public class auth extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getRequestURI());
+		String user = request.getRemoteUser();
+		boolean isUser = request.isUserInRole("user");
+		String msg = "\n" + user + " is in role user: " + isUser;
+		response.getWriter().append("Served at: ").append(request.getRequestURI()).append(msg);
 	}
 
 	/**
