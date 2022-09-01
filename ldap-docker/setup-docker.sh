@@ -15,7 +15,7 @@ fi
 docker build -t ldap -f Dockerfile.openldap .
 docker run -d -p 1389:389 --name ldap ldap --loglevel debug
 #Change for Docker
-sed -i s/{ldap-host}/$ACCESS_HOST/g config/server.xml
+sed s/{ldap-host}/$ACCESS_HOST/g config/server.xml > config/server.xml.ldap
 docker build -t auth .
 docker run -d -p 9080:9080 -p 9443:9443 --name ll auth
 #sleep 30
