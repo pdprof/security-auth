@@ -12,6 +12,9 @@ if [ -z $ACCESS_HOST ]; then
 fi
 mkdir -p resources/security
 
+sed s/localhost:9080/$ACCESS_HOST:9080/g setup-keycloak.sh > setup-keycloak.sh.custom
+chmod 755 setup-keycloak.sh.custom
+
 docker build -t liberty-idp -f Dockerfile.keycloak .
 docker run -d -p 8080:8080 -p 8443:8443 --name kc liberty-idp -Djboss.bind.address.private=127.0.0.1 -Djboss.bind.address=0.0.0.0
 sleep 100
