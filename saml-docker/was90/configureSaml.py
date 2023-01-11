@@ -1,8 +1,8 @@
 AdminTask.configureTrustAssociation('-enable true')
-AdminTask.configureInterceptor('[-interceptor com.ibm.ws.security.web.saml.ACSTrustAssociationInterceptor -customProperties ["sso_1.sp.acsUrl=http://localhost:7080/samlsps/acs","sso_1.sp.idMap=idAssertion","sso_1.sp.login.error.page=pdprof.security.saml.PdprofAuthnRequestProvider"]]');
+AdminTask.configureInterceptor('[-interceptor com.ibm.ws.security.web.saml.ACSTrustAssociationInterceptor -customProperties ["sso_1.sp.acsUrl=http://localhost9080/samlsps/acs","sso_1.sp.idMap=idAssertion","sso_1.sp.login.error.page=pdprof.security.saml.PdprofAuthnRequestProvider"]]');
 AdminTask.setAdminActiveSecuritySettings('[-customProperties ["com.ibm.websphere.security.DeferTAItoSSO=com.ibm.ws.security.web.saml.ACSTrustAssociationInterceptor","com.ibm.websphere.security.InvokeTAIbeforeSSO=com.ibm.ws.security.web.saml.ACSTrustAssociationInterceptor"]]')
 AdminTask.setJVMSystemProperties('[-serverName server1 -nodeName DefaultNode01 -propertyName pdprof.security.saml.ssoUrl -propertyValue http://localhost:8080/auth/realms/pdprof/protocol/saml]')
-AdminTask.setJVMSystemProperties('[-serverName server1 -nodeName DefaultNode01 -propertyName pdprof.security.saml.acsUrl -propertyValue http://localhost:7080/samlsps/acs]')
+AdminTask.setJVMSystemProperties('[-serverName server1 -nodeName DefaultNode01 -propertyName pdprof.security.saml.acsUrl -propertyValue http://localhost:9080/samlsps/acs]')
 AdminConfig.save()
 AdminTask.exportSAMLSpMetadata('-spMetadataFileName /work/spMetadata-was90.xml -ssoId 1')
 AdminTask.importSAMLIdpMetadata('-idpMetadataFileName /work/idpMetadata.xml -idpId 1 -ssoId 1 -signingCertAlias keycloak')
