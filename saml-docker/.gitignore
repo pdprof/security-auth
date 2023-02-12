@@ -3,4 +3,5 @@ trapit
 spMetadata.xml
 spMetadata-was90.xml
 idpMetadata.xml
+key.p12
 *.custom
