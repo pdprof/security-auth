@@ -2,3 +2,4 @@ FROM jboss/keycloak
 ENV KEYCLOAK_USER=admin
 ENV KEYCLOAK_PASSWORD=password
 COPY setup-keycloak.sh.custom /tmp/setup-keycloak.sh
+COPY setup-kc-client-liberty.sh /tmp/setup-kc-client-liberty.sh

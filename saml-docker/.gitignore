@@ -5,3 +5,5 @@ spMetadata-was90.xml
 idpMetadata.xml
 key.p12
 *.custom
+client_liberty.json
+client_secret.txt
