@@ -17,3 +17,9 @@ AdminConfig.save()
 print "importSAMLIdpMetadata..."
 AdminTask.importSAMLIdpMetadata('-idpMetadataFileName /work/idpMetadata.xml -idpId 1 -ssoId 1 -signingCertAlias keycloak')
 AdminConfig.save()
+print "Set security appEnabled true..."
+security = AdminConfig.list('Security')
+AdminConfig.modify(security, [['appEnabled', 'true']])
+print "Map app role to all authenticated user in SAML(trusted) realm..."
+AdminApp.edit('security_auth', '[ -MapRolesToUsers [[ AllAuthenticated AppDeploymentOption.No AppDeploymentOption.No "" "" AppDeploymentOption.Yes "" "" ]]]' )
+AdminConfig.save()

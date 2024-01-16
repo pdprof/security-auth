@@ -6,4 +6,5 @@ idpMetadata.xml
 key.p12
 *.custom
 client_liberty.json
+client_was90.json
 client_secret.txt
