@@ -1,6 +1,7 @@
 FROM ibmcom/websphere-traditional:latest
 ENV ENABLE_BASIC_LOGGING=true
 COPY was90/PASSWORD /tmp/PASSWORD
+COPY was90/KEYSTORE_PASSWORD /tmp/KEYSTORE_PASSWORD
 COPY --chown=was:root apps/pdprof.saml.jar /opt/IBM/WebSphere/AppServer/lib/ext/
 COPY --chown=was:root apps/security.auth.war was90/virtual-host.py was90/installSamlACS.py /work/config/
 COPY --chown=was:root was90/configureSaml.py.custom /work/config/configureSaml.py
