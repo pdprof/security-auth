@@ -15,9 +15,10 @@ docker cp was90-saml:/work/spMetadata-was90.xml .
 docker cp was90-saml:/opt/IBM/WebSphere/AppServer/profiles/AppSrv01/config/cells/DefaultCell01/nodes/DefaultNode01/key.p12 .
 sed -i s/localhost:9080/$ACCESS_HOST:7080/g spMetadata-was90.xml
 sed -i s/localhost:9443/$ACCESS_HOST:7443/g spMetadata-was90.xml
-export TOKEN_URL=http://localhost:8080/auth/realms/master/protocol/openid-connect/token
-export AUTH="Authorization: bearer $(curl -s -d client_id=admin-cli -d username=admin -d password=password -d grant_type=password ${TOKEN_URL} | jq -r '.access_token')"
-export CONVERTER_URL="http://localhost:8080/auth/admin/realms/pdprof/client-description-converter"
+KEYCLOAK_URL=http://localhost:8080
+TOKEN_URL="${KEYCLOAK_URL}/realms/master/protocol/openid-connect/token"
+AUTH="Authorization: bearer $(curl -d client_id=admin-cli -d username=admin -d password=password -d grant_type=password ${TOKEN_URL} | jq -r '.access_token')"
+CONVERTER_URL="http://localhost:8080/admin/realms/pdprof/client-description-converter"
 export CLIENT_JSON=$(curl -X POST -H "${AUTH}"  -H 'content-type: application/json' ${CONVERTER_URL} --data-binary @spMetadata-was90.xml)
 echo $CLIENT_JSON > client_was90.json
 docker cp client_was90.json kc:/tmp/
