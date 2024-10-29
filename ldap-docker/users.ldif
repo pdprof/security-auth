@@ -3,15 +3,16 @@ changeType: add
 objectClass: organizationalUnit
 ou: users
 
-dn: uid=pdprof,ou=users,dc=pdprof,dc=mustgather
+dn: uid=pdadmin,ou=users,dc=pdprof,dc=mustgather
 changeType: add
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
-uid: pdprof
-cn: pdprof
+uid: pdadmin
+cn: pdadmin
 sn: mustgather
+mail: pdadmin@ldap.pdprof.mustgather
 userPassword: passw0rd
 
 dn: uid=myuser,ou=users,dc=pdprof,dc=mustgather
@@ -23,17 +24,19 @@ objectClass: inetOrgPerson
 uid: myuser
 cn: user
 sn: my
+mail: myuser@ldap.pdprof.mustgather
 userPassword: passw0rd
 
-dn: uid=wsadmin,ou=users,dc=pdprof,dc=mustgather
+dn: uid=wasadmin,ou=users,dc=pdprof,dc=mustgather
 changeType: add
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
-uid: wsadmin
+uid: wasadmin
 cn: Was
 sn: admin
+mail: wasadmin@ldap.pdprof.mustgather
 userPassword: passw0rd
 
 dn: ou=group,dc=pdprof,dc=mustgather
