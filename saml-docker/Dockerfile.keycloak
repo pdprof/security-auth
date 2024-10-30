@@ -16,3 +16,4 @@ ENV KEYCLOAK_ADMIN_PASSWORD=password
 COPY setup-keycloak.sh.custom /tmp/setup-keycloak.sh
 COPY setup-kc-client-liberty.sh /tmp/setup-kc-client-liberty.sh
 COPY setup-kc-client-was90.sh /tmp/setup-kc-client-was90.sh
+COPY setup-kc-ldap.sh /tmp/setup-kc-ldap.sh
