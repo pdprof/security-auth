@@ -14,6 +14,8 @@ mkdir -p resources/security
 
 sed s/localhost:9080/$ACCESS_HOST:9080/g setup-keycloak.sh > setup-keycloak.sh.custom
 chmod 755 setup-keycloak.sh.custom
+sed s/centos:1389/$ACCESS_HOST:1389/g setup-kc-ldap.sh > setup-kc-ldap.sh.custom
+chmod 755 setup-kc-ldap.sh.custom
 
 docker build -t liberty-idp -f Dockerfile.keycloak .
 docker run -d -p 8080:8080 -p 8443:8443 --name kc liberty-idp start-dev
